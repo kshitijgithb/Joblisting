@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@Hidden
 public class PostController {
     @Autowired
     PostRepository repo;
@@ -29,6 +28,7 @@ public class PostController {
 
     @GetMapping("/posts/{text}")
     public List<Post>search(@PathVariable String text) {
+        System.out.println("Searching for: " + text);
         return srepo.findByText(text);
     }
     @PostMapping("/posts")
